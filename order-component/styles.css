@@ -18,6 +18,7 @@ body {
     background-position: top;
     background-size: contain;
     background-color: var(--pale-blue);
+    padding: 10px;
     display: grid;
     place-content: center;
     min-height: 100dvh;
@@ -31,7 +32,7 @@ body {
 }
 
 .container {
-    width: clamp(300px, 90vw, 400px);
+    max-width: 400px;
     min-height: auto;
     background-color: white;
     border-radius: 30px;
