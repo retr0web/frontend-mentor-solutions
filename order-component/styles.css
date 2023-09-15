@@ -31,7 +31,7 @@ body {
 }
 
 .container {
-    width: clamp(350px, 90vw, 400px);
+    width: clamp(300px, 90vw, 400px);
     min-height: auto;
     background-color: white;
     border-radius: 30px;
