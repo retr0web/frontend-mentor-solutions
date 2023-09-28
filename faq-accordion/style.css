@@ -159,7 +159,7 @@ footer {
         place-items: center;
         gap: 15px;
         background-image: url("images/bg-pattern-mobile.svg");
-        background-position: 50% -7px;
+        background-position: 50% 7px;
         background-size: min(290px, 90%);
     }
 
