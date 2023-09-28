@@ -58,7 +58,8 @@ footer {
     left: -23%;
     object-fit: contain;
     scale: 1.2;
-    clip-path: inset(0 0 0 16.9%);
+    width: 100%;
+    clip-path: inset(0 0 0 16.6%);
 }
 
 .box-img {
