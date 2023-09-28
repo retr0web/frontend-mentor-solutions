@@ -158,8 +158,8 @@ footer {
         place-items: center;
         gap: 15px;
         background-image: url("images/bg-pattern-mobile.svg");
-        background-position: 50% -90px;
-        background-size: min(300px, 90%) 300px;
+        background-position: 50% -7px;
+        background-size: min(290px, 90%);
     }
 
     .hero picture {
