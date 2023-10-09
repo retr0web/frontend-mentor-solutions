@@ -1,0 +1,241 @@
+:root {
+    --very-dark-magenta: hsl(300, 43%, 22%);
+    --soft-pink: hsl(333, 80%, 67%);
+    --dark-grayish-magenta: hsl(303, 10%, 53%);
+    --light-grayish-magenta: hsl(300, 24%, 96%);
+    --white: hsl(0, 0%, 100%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100dvh;
+    font-size: 15px;
+    font-family: 'League Spartan', sans-serif;
+    background-color: var(--white);
+    background-image: url("images/bg-pattern-top-desktop.svg"), url("images/bg-pattern-bottom-desktop.svg");
+    background-repeat: no-repeat, no-repeat;
+    background-position: top left, bottom right;
+}
+
+main {
+    margin: 0 auto;
+    padding-top: 100px;
+    width: 80%;
+    max-width: 1150px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+    "heading reviews reviews"
+    "testimony1 testimony2 testimony3";
+    grid-column-gap: 20px;
+    grid-row-gap: 40px;
+}
+
+.flex {
+    display: flex;
+}
+
+.text {
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 20px;
+    grid-area: heading;
+}
+
+.text h1 {
+    font-weight: 700;
+    font-size: 48px;
+    color: var(--very-dark-magenta);
+    max-width: 13ch;
+}
+
+.text p {
+    font-weight: 400;
+    color: var(--dark-grayish-magenta);
+    line-height: 1.5;
+    max-width: 40ch;
+}
+
+.reviews {
+    grid-area: reviews;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    gap: 20px;
+}
+
+.review:nth-child(1) {
+    margin-right: 60px;
+}
+
+.review:nth-child(2) {
+    margin-right: 30px;
+}
+
+.review {
+    background-color: var(--light-grayish-magenta);
+    padding: 15px 40px;
+    border-radius: 8px;
+    min-width: 430px;
+    gap: 30px;
+}
+
+.review h2 {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--very-dark-magenta);
+}
+
+.five-star {
+    gap: 10px;
+}
+
+.testimony {
+    background-color: var(--very-dark-magenta);
+    padding: 25px 25px;
+    border-radius: 8px;
+    min-height: 230px;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-template-areas: 
+    "photo info"
+    "text text";
+    align-items: center;
+    gap: 15px;
+}
+
+.testimony img {
+    grid-area: photo;
+    border-radius: 50%;
+    width: 35px;
+}
+
+.testimony .buyer-info {
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.buyer-info h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.buyer-info strong {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--soft-pink);
+}
+
+.testimony p {
+    grid-area: text;
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.testimony:nth-of-type(1) {
+    grid-area: testimony1;
+}
+
+.testimony:nth-of-type(2) {
+    grid-area: testimony2;
+    position: absolute;
+    margin-top: 15px;
+}
+
+.testimony:nth-of-type(3) {
+    grid-area: testimony3;
+    position: absolute;
+    margin-top: 30px;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 20px;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+/* media query for below 950px width */
+@media (max-width: 950px) {
+    body {
+        background-image: url("images/bg-pattern-top-mobile.svg"), url("images/bg-pattern-bottom-mobile.svg");
+    }
+
+    main {
+        width: 85%;
+        max-width: 430px;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas: 
+        "heading"
+        "reviews"
+        "testimony1"
+        "testimony2"
+        "testimony3";
+        grid-row-gap: 15px;
+    }
+
+    .text {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .reviews {
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .review {
+        width: 100%;
+        max-width: 430px;
+        min-width: fit-content;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .review:nth-child(1) {
+        margin-right: 0px;
+    }
+    
+    .review:nth-child(2) {
+        margin-right: 0px;
+    }
+
+    .testimony:nth-of-type(2) {
+        grid-area: testimony2;
+        position: static;
+        margin-top: 0px;
+    }
+    
+    .testimony:nth-of-type(3) {
+        grid-area: testimony3;
+        position: static;
+        margin-top: 0px;
+    }
+
+    .attribution {
+        font-size: 11px;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+}
