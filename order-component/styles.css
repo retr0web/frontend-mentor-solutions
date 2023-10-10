@@ -153,6 +153,12 @@ body {
     padding: 10px;
 }
 
+@media (max-width: 960px) {
+    body {
+        background-image: url("./images/pattern-background-mobile.svg");
+    }
+}
+
 @media (max-width: 430px) {
     .content {
         width: 90%;
