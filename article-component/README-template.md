@@ -7,14 +7,10 @@ This is a solution to the [Article preview component challenge on Frontend Mento
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
-  - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
@@ -29,22 +25,16 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![](./screenshot.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [githube repository](https://github.com/retr0web/frontend-mentor-solutions/tree/main/article-component)
+- Live Site URL: [github.io hosting](https://retr0web.github.io/frontend-mentor-solutions/article-component/)
 
 ## My process
+
+Making the component itself was quite easy, the most challenging part for me was to implement the tooltip and then make it change form on mobile. Thought it took some time to research all the possible solutions, I am satisfied with what was developed in the end.
 
 ### Built with
 
@@ -52,60 +42,60 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - CSS custom properties
 - Flexbox
 - CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- Pseudo-elements like ::after
+- Clip-path
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
+As mentioned before, the trickiest part was to make a tooltip. At first I thought that the clip-path property would be perfect for the task, but unfortunatelly, with the approach it was used, the border-radius couldn't be saved for bottom corners. After extensive research, I understood that you shouldn't complicate things for yourself and look for a solution that is easier to maintain. So to make an arrow for the tooltip I used ::after and clip-path to turn it into a triangle, so the tooltip has an arrow at the bottom and preserves the border-radius. As for position of the tooltip I chose to make a container for both share button and tooltip, so that when the layout shifts to mobile size, I can easily manipulate the positions of containers to relocate the share section from tooltip, additionally removing the arrow of course. So here is how to make a tooltip with arrow for desktop layout:
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<div class="share">
+  <svg class="svg-container" xmlns="http://www.w3.org/2000/svg"
+    width="35" height="35" viewBox="0 0 35 35">
+    <path class="icon" fill="#6E8098"
+      d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0
+         10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39
+         9.11h.375v3.867L15 6.495z"/>
+  </svg>
+  <div class="social-media">
+    <h3>Share</h3>
+    <a href="https://www.facebook.com"><img src="images/icon-facebook.svg" alt="facebook"></a>
+    <a href="https://twitter.com/"><img src="images/icon-twitter.svg" alt="X"></a>
+    <a href="https://www.pinterest.com"><img src="images/icon-pinterest.svg" alt="pinterest"></a>
+  </div>
+</div>
 ```
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+.social-media {
+    opacity: 0;
+    transition: 400ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--very-dark-grayish-blue);
+    border-radius: 12px;
+    padding: 15px 30px;
+    position: absolute;
+    top: -70px;
+    right: -97.5px;
+    pointer-events: none;
+}
+
+.social-media::after {
+    content: '';
+    width: 20px;
+    aspect-ratio: 1 / 1;
+    background-color: var(--very-dark-grayish-blue);
+    clip-path: polygon(100% 0, 0 0, 50% 100%);
+    position: absolute;
+    bottom: -15px;
+    z-index: 1;
 }
 ```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Frontend Mentor - [@retr0web](https://www.frontendmentor.io/profile/retr0web)
 
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
