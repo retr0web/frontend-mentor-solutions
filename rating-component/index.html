@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>Frontend Mentor | Interactive rating component</title>
+</head>
+<body>
+  <main>
+    <section class="card rating active">
+      <div class="circle">
+        <img src="images/icon-star.svg" alt="star">
+      </div>
+      <h2 tabindex="0">How did we do?</h2>
+      <p tabindex="0">Please let us know how we did with your support request. All feedback 
+        is appreciated to help us improve our offering!</p>
+      <div id="marks-container">
+        <div data-mark="1" tabindex="0">1</div>
+        <div data-mark="2" tabindex="0">2</div>
+        <div data-mark="3" tabindex="0">3</div>
+        <div data-mark="4" tabindex="0">4</div>
+        <div data-mark="5" tabindex="0">5</div>
+      </div>
+      <button id="submit-button">Submit</button>
+    </section>
+
+    <section class="card thank-you">
+      <img src="images/illustration-thank-you.svg" alt="phone with credit card and reciept">
+      <div class="mark-message">You selected <span id="mark"></span> out of 5</div>
+      <h2>Thank you!</h2>
+      <p>We appreciate you taking the time to give a rating. If you ever need 
+        more support, don’t hesitate to get in touch!</p>
+    </section>
+
+    <section class="card developer">
+      <img src="images/dev.png" alt="bug" width="162" height="108">
+      <h2>AHA! Naughty developer!</h2>
+      <p>It seems you've been tempering with dev tools, and tried to brake the program!
+        Nice effort, but my form won't fall apart from such easy tricks!
+        No Thank You page for you, bug hunter!
+      </p>
+    </section>
+  </main>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/retr0web">retr0web</a>.
+  </div>
+<script src="index.js"></script>
+</body>
+</html>

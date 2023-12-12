@@ -1,0 +1,151 @@
+:root {
+    --primary-orange: hsl(25, 97%, 53%);
+    --neutral-white: hsl(0, 0%, 100%);
+    --neutral-light-grey: hsl(217, 12%, 63%);
+    --neutral-medium-grey: hsl(216, 12%, 55%);
+    --neutral-dark-blue: hsl(213, 19%, 18%);
+    --neutral-very-dark-blue: hsl(216, 12%, 8%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100dvh;
+    font-size: 15px;
+    font-family: 'Overpass', sans-serif;
+    background-color: var(--neutral-very-dark-blue);
+    color: white;
+    display: grid;
+    place-items: center;
+}
+
+main {
+    width: 100%;
+    max-width: 360px;
+    margin-inline: auto;
+    padding: 10px;
+    display: grid;
+    place-items: start center;
+    grid-template-areas: "card";
+}
+
+main > section {
+    grid-area: card;
+    pointer-events: none;
+    position: relative;
+    z-index: 0;
+    min-height: 333px;
+}
+
+.active {
+    z-index: 1;
+    pointer-events: all;
+}
+
+.circle {
+    width: fit-content;
+    display: grid;
+    place-items: center;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: var(--neutral-dark-blue);
+}
+
+.card {
+    background-image: radial-gradient(circle at top, rgb(37, 42, 51), rgb(25, 30, 39));
+    border-radius: 16px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Rating card */
+
+.rating {
+    justify-content: center;
+    align-items: start;
+}
+
+.rating > h2 {
+    font-weight: 700;
+}
+
+#marks-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#marks-container > * {
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: var(--neutral-dark-blue);
+    color: var(--neutral-medium-grey); 
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#marks-container > *:hover,
+#marks-container > *:focus-visible,
+#marks-container > .mark-active {
+    background-color: var(--primary-orange);
+    color: var(--neutral-white);
+}
+
+.rating > p {
+    max-width: 38ch;
+}
+
+.rating > button {
+    width: 100%;
+    background-color: var(--primary-orange);
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--neutral-white);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.rating > button:hover,
+.rating > button:focus {
+    background-color: var(--neutral-white);
+    color: var(--primary-orange);
+}
+
+/* Thank you card */
+
+.mark-message {
+    background-color: var(--neutral-dark-blue);
+    padding: 10px 15px;
+    border-radius: 25px;
+}
+
+.mark-message,
+.mark {
+    color: var(--primary-orange);
+}
+
+.thank-you > p,
+.developer > p {
+    text-align: center;
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
