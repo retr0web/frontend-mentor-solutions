@@ -33,7 +33,6 @@ function handleSubmit() {
         ratingCard.classList.remove('active');
         bugHunter.classList.add('active');
     }
-    
 }
 
 submitButton.addEventListener('click', handleSubmit);
