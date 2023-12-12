@@ -58,7 +58,7 @@ main > section {
 .card {
     background-image: radial-gradient(circle at top, rgb(37, 42, 51), rgb(25, 30, 39));
     border-radius: 16px;
-    padding: 15px;
+    padding: 22px;
     display: flex;
     flex-direction: column;
     justify-content: center;
