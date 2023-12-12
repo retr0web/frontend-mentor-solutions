@@ -25,7 +25,11 @@ function handleSubmit() {
         ratingCard.classList.remove('active');
         chosenMark.innerHTML = currentMark;
         thankYouCard.classList.add('active');
-    } else {
+    } else if(Array.from(marks).filter(el => 
+        el.classList.contains('mark-active')).length === 0) {
+            alert("Select a mark before submiting");
+    }
+    else {
         ratingCard.classList.remove('active');
         bugHunter.classList.add('active');
     }
