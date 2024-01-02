@@ -1,0 +1,550 @@
+:root {
+    --soft-red: hsl(7, 99%, 70%);
+    --yellow: hsl(51, 100%, 49%);
+    --dark-desaturated-cyan: hsl(167, 40%, 24%);
+    --dark-blue: hsl(198, 62%, 26%);
+    --dark-moderate-cyan: hsl(168, 34%, 65%); 
+    --very-dark-desaturated-blue: hsl(212, 27%, 19%);
+    --very-dark-grayish-blue: hsl(213, 9%, 39%);
+    --dark-grayish-blue: hsl(232, 10%, 55%);
+    --grayish-blue: hsl(210, 4%, 67%);
+    --white: hsl(0, 0%, 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 18px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(63, 191, 255, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+}
+
+header ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px;
+    list-style-type: none;
+}
+
+header ul > li a {
+    padding: 18px 30px;
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 30px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+header ul li:nth-child(4) a {
+    font-family: 'Fraunces';
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--very-dark-desaturated-blue);
+    background-color: var(--white);
+}
+
+header ul > li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+header ul li:nth-child(4) a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--white);
+}
+
+header > #menu-toggle {
+    display: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.home {
+    min-height: 100svh;
+    background-image: url("images/desktop/image-header.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: grid;
+    grid-template-columns: 250px 1fr 1fr 250px;
+    grid-template-rows: repeat(4, 1fr);
+    place-items: center;
+    grid-template-areas: 
+    '. . . .'
+    '. text text .'
+    '. arrow arrow .'
+    '. . . .';
+}
+
+.home > h1 {
+    text-transform: uppercase;
+    color: var(--white);
+    font-size: 5rem;
+    font-family: 'Fraunces';
+    font-weight: 900;
+    text-align: center;
+    grid-area: text;
+}
+
+.home > img {
+    grid-area: arrow;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+}
+
+.cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(200px, 600px);
+    grid-template-areas: 
+    'brand egg'
+    'glass audience'
+    'design photography';
+}
+
+.brand-area {
+    grid-area: brand;
+}
+
+.egg-area {
+    grid-area: egg;
+}
+
+.glass-area {
+    grid-area: glass;
+}
+
+.audience-area {
+    grid-area: audience;
+}
+
+.design-area {
+    grid-area: design;
+}
+
+.photography-area {
+    grid-area: photography;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    padding-inline: 150px;
+    gap: 40px;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.image > img:only-child {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card > h2 {
+    font-family: 'Fraunces', system-ui;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: var(--very-dark-desaturated-blue);
+}
+
+.card > p {
+    font-family: 'Barlow', system-ui;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--dark-grayish-blue);
+}
+
+.card > a {
+    font-family: 'Fraunces', system-ui;
+    font-weight: 700;
+    font-size: 1.125rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--very-dark-desaturated-blue);
+    position: relative;
+}
+
+.card:nth-child(1) {
+    --_background: hsla(51, 100%, 49%, 0.4);
+    --_hover: hsla(51, 100%, 49%, 1);
+}
+
+.card:nth-child(4) {
+    --_background: hsla(7, 99%, 70%, 0.4);
+    --_hover: hsla(7, 99%, 70%, 1);
+}
+
+.card > a::after {
+    content: '';
+    height: 8px;
+    width: calc(100% + 15px);
+    background-color: var(--_background);
+    border-radius: 16px;
+    position: absolute;
+    bottom: 0px;
+    left: -7.5px;
+    z-index: -1;
+    transition: 0.3s;
+}
+
+.card > a:hover::after {
+    background-color: var(--_hover);
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    gap: 25px;
+    padding-bottom: 50px;
+    background-image: var(--_background-image);
+    background-size: cover;
+    background-position: center;
+}
+
+.service-card:nth-of-type(5) {
+    --_background-image: url(images/desktop/image-graphic-design.jpg);
+    --_color: var(--dark-desaturated-cyan);
+}
+
+.service-card:nth-child(6) {
+    --_background-image: url(images/desktop/image-photography.jpg);
+    --_color: var(--dark-blue);
+}
+
+.service-card > h2 {
+    font-family: 'Fraunces', system-ui;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--_color);
+}
+
+.service-card > p {
+    font-family: 'Barlow', system-ui;
+    font-weight: 600;
+    font-size: 16px;
+    max-width: 40ch;
+    text-align: center;
+    line-height: 1.5;
+    color: var(--_color);
+}
+
+.clients {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    padding: 20px;
+}
+
+.clients > h2 {
+    font-family: 'Fraunces';
+    font-weight: 900;
+    font-size: 24px;
+    color: var(--dark-grayish-blue);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.testimonials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.testimony {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.testimony > img {
+    width: 80px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.testimony > p {
+    font-family: 'Barlow', system-ui;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--very-dark-grayish-blue);
+    max-width: 35ch;
+    text-align: center;
+    margin-block: 50px;
+}
+
+.testimony > h3 {
+    font-family: 'Fraunces', system-ui;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--very-dark-desaturated-blue);
+}
+
+.testimony > span {
+    font-family: 'Barlow', system-ui;
+    font-weight: 600;
+    color: var(--grayish-blue);
+    font-size: 14px;
+    padding-top: 15px;
+}
+
+
+.gallery {
+    width: 100%;
+    min-height: 300px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.gallery > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+footer {
+    width: 100%;
+    background-color: var(--dark-moderate-cyan);
+    padding-block: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+footer > svg > path {
+    fill: var(--dark-desaturated-cyan);
+    scale: 1.2;
+}
+
+.links > ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.links > ul > li > a {
+    text-decoration: none;
+    font-family: 'Barlow', system-ui;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--dark-desaturated-cyan);
+    transition: 0.4s;
+}
+
+.links > ul > li > a:hover {
+    color: var(--white);
+}
+
+.socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.socials > a {
+    text-decoration: none;
+}
+
+.socials path {
+    transition: 0.4s;
+}
+
+.socials a:hover > svg > path {
+    fill: var(--white);
+}
+
+.attribution { 
+    font-size: 14px; 
+    text-align: center; 
+    font-family: 'Barlow', system-ui; 
+    color: var(--dark-desaturated-cyan);
+}
+
+.attribution a { color: hsl(228, 45%, 44%); }
+
+@media all and (max-width: 1060px) {
+    .cards {
+        grid-auto-rows: minmax(250px, 370px);
+    }
+
+    .card {
+        padding-inline: 40px;
+        padding-block: 20px;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .card > h2, p, a {
+        text-align: center;
+    }
+
+    .card > h2 {
+        font-size: 1.7rem;
+    }
+
+    .service-card {
+        padding-bottom: 20px;
+    }
+
+    .clients {
+        gap: 30px;
+        padding-block: 50px;
+        min-height: 50vh;
+    }
+}
+
+@media all and (max-width: 870px) {
+    header {
+        padding: 20px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .menu {
+        position: absolute;
+        top: 100px;
+        right: 20px;
+        width: 90%;
+        max-width: 430px;
+        padding-block: 35px;
+        background-color: var(--white);
+        z-index: 100;
+    }
+
+    .menu::after {
+        content: '';
+        top: -30px;
+        position: absolute;
+        right: 0;
+        width: 30px;
+        aspect-ratio: 1;
+        background-color: var(--white);
+        clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+        z-index: 100;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    .menu ul > li > a {
+        color: var(--dark-grayish-blue);
+    }
+
+    .menu ul > li > a:hover {
+        color: var(--very-dark-desaturated-blue);
+    }
+
+    .menu ul li:nth-child(4) a {
+        background-color: var(--yellow);
+    }
+
+    .menu ul li:nth-child(4) a:hover {
+        background-color: var(--yellow);
+        color: var(--white);
+    }
+
+    header > #menu-toggle {
+        display: block;
+    }
+}
+
+@media all and (max-width: 700px) {
+    .home {
+        grid-template-columns: none;
+        background-image: url("images/mobile/image-header.jpg");
+    }
+
+    .home > h1 {
+        font-size: 3rem;
+        padding-inline: 10px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        'egg'
+        'brand'
+        'glass'
+        'audience'
+        'design'
+        'photography';
+    }
+
+    .clients > h2 {
+        font-size: 14px;
+        text-align: center;
+        padding-top: 15px;
+    }
+
+    .testimonials {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .testimony > p {
+        margin-block: 25px;
+        line-height: 1.5;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .attribution {
+        padding: 15px;
+    }
+}
+
+@media all and (max-width: 475px) {
+    .home > h1 {
+        font-size: 2.3rem;
+    }
+}
