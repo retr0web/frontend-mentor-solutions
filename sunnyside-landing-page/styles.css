@@ -17,6 +17,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-size: 18px;
 }
@@ -78,7 +82,7 @@ header > #menu-toggle {
 }
 
 .home {
-    min-height: 100dvh;
+    min-height: 100svh;
     background-image: url("images/desktop/image-header.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -116,6 +120,10 @@ header > #menu-toggle {
     50% {
       transform: translateY(10px);
     }
+}
+
+#content {
+    scroll-margin-top: 104px;
 }
 
 .cards {
@@ -494,6 +502,10 @@ footer > svg > path {
 
     header > #menu-toggle {
         display: block;
+    }
+
+    #content {
+        scroll-margin-top: 64px;
     }
 }
 
