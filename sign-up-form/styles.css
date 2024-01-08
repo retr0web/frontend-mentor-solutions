@@ -1,0 +1,241 @@
+:root {
+    --red: hsl(0, 100%, 74%);
+    --green: hsl(154, 59%, 51%);
+    --blue: hsl(248, 32%, 49%);
+    --dark-blue: hsl(249, 10%, 26%);
+    --grayish-blue: hsl(246, 25%, 77%);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--red);
+    background-image: url("images/bg-intro-desktop.png");
+    min-height: 90dvh;
+    display: grid;
+    place-items: center;
+}
+
+main {
+    width: 85%;
+    max-width: 1285px;
+    min-height: 80%;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    gap: 30px;
+}
+
+.heading {
+    display: grid;
+    gap: 20px;
+}
+
+.heading > h1 {
+    font-weight: 700;
+    font-size: 3rem;
+    color: white;
+}
+
+.heading > p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: white;
+    max-width: 50ch;
+}
+
+.flex-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign-form {
+    width: 90%;
+    max-width: 510px;
+    gap: 15px;
+}
+
+.promotion {
+    width: 100%;
+    background-color: var(--blue);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.2);
+    --_font-size: 1rem;
+}
+
+.promotion > p {
+    font-size: var(--_font-size);
+}
+
+.promotion > p > span {
+    font-size: var(--_font-size);
+    font-weight: 600;
+}
+
+.form-container {
+    background-color: white;
+    width: 100%;
+    padding: 30px;
+    border-radius: 10px;
+    gap: 20px;
+    box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+.form-container > form {
+    width: 100%;
+    gap: 40px;
+}
+
+.input-container {
+    width: 100%;
+    position: relative;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid var(--grayish-blue);
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+input.invalid {
+    border: 2px solid var(--red);
+}
+
+.input-container:has(input.invalid)::before {
+    content: attr(data-error);
+    z-index: 100;
+    position: absolute;
+    bottom: -30px;
+    right: 0px;
+    color: var(--red);
+}
+
+.input-container:has(input.invalid)::after {
+    content: '';
+    z-index: 100;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 24px;
+    aspect-ratio: 1;
+    background-image: url("images/icon-error.svg");
+}
+
+.input-container input:not([type="email"], #Password) {
+    text-transform: capitalize;
+}
+
+.form-container button {
+    border: none;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 18.5px;
+    background-color: var(--green);
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0px 5px 0px 0px hsl(154, 57%, 44%);
+    transition: 0.4s;
+}
+
+.form-container button:hover {
+    filter: brightness(115%);
+}
+
+.form-container > span {
+    font-size: 0.6rem;
+    text-align: center;
+    color: var(--grayish-blue);
+}
+
+.form-container > span > a {
+    color: var(--red);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
+.attribution { 
+    font-size: 11px;
+    text-align: center;
+    padding: 10px;
+}
+.attribution a { color: hsl(228, 45%, 44%); }
+
+@media all and (max-width: 1020px) {
+    body {
+        background-image: url("images/bg-intro-mobile.png");
+    }
+
+    main {
+        grid-template-columns: repeat(1, 1fr);
+        padding-block: 30px;
+        width: 95%;
+    }
+
+    .heading {
+        place-items: center;
+    }
+
+    .heading > h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .heading > p {
+        text-align: center;
+        max-width: 35ch;
+    }
+
+    .form-container > span {
+        text-align: center;
+    }
+
+    footer {
+        position: static;
+    }
+}
+
+@media all and (max-width: 450px) {
+    .promotion {
+        --_font-size: 0.8rem;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+
+    .input-container input {
+        padding: 15px;
+    }
+
+    .input-container:has(input.invalid)::before {
+        font-size: 12px;
+        bottom: -25px;
+    }
+
+    .input-container:has(input.invalid)::after {
+        top: 14px;
+        right: 14px;
+    }
+}
