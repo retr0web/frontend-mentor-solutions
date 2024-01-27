@@ -1,0 +1,305 @@
+:root {
+    --tomato: hsl(4, 100%, 67%);
+    --dark-slate-grey: hsl(234, 29%, 20%);
+    --charcoal-grey: hsl(235, 18%, 26%);
+    --grey: hsl(231, 7%, 60%);
+    --white: hsl(0, 0%, 100%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--charcoal-grey);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    min-height: 100dvh;
+}
+
+main {
+    width: 90%;
+    max-width: 930px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    background-color: var(--white);
+    padding: 20px 20px 20px 50px;
+    border-radius: 25px;
+}
+
+main > picture {
+    width: fit-content;
+    justify-self: end;
+}
+
+.sign-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 30px;
+}
+
+.sign-up > h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--dark-slate-grey);
+    padding-top: 60px;
+}
+
+.sign-up > p {
+    font-size: 1rem;
+    font-weight: 400;
+    max-width: 40ch;
+    color: var(--dark-slate-grey);
+}
+
+.sign-up > ul {
+    list-style-type: none;
+    list-style-position: inside;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sign-up > ul li::before {
+    content: url(assets/images/icon-list.svg);
+    padding-inline-end: 10px;
+    position: relative;
+    top: 4px;
+}
+
+.input-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 10px;
+}
+
+.input-container > * {
+    width: 100%;
+}
+
+.labels {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-container label, span {
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.input-container span {
+    color: var(--tomato);
+    display: none;
+}
+
+.input-container input {
+    padding: 20px;
+    border: 1px solid var(--grey);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--dark-slate-grey);
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.input-container input:hover {
+    border: 1px solid var(--dark-slate-grey);
+}
+
+.input-container input.invalid {
+    border: 1px solid var(--tomato);
+    color: var(--tomato);
+    background-color: rgb(251,233,231);
+}
+
+@keyframes shake {
+    30% {transform: translateX(15px);}
+    45% {transform: translateX(-15px);}
+    60% {transform: translateX(15px);}
+    75% {transform: translateX(-15px);}
+}
+
+.action {
+    position: relative;
+    padding: 20px;
+    margin-top: 15px;
+    background-color: var(--dark-slate-grey);
+    background-image: linear-gradient(135deg, rgba(236, 96, 122, 0) 4%, rgba(233, 112, 75, 0) 97%);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.action::before {
+    content: "Subscribe to monthly newsletter";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(135deg, rgba(236, 96, 122, 1) 4%, rgba(233, 112, 75, 1) 97%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px #ff625766;
+    transition: opacity 0.5s;
+}
+
+.action:hover::before {
+    opacity: 1;
+}
+
+.success {
+    width: fit-content;
+    max-width: 450px;
+    padding: 60px;
+    background-color: var(--white);
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 20px;
+}
+
+.success > h2 {
+    font-size: 3rem;
+    color: var(--dark-slate-grey);
+}
+
+.success > p,
+.success span {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--dark-slate-grey);
+}
+
+.success > p > span {
+    font-weight: 700;
+}
+
+.success > button {
+    width: 100%;
+}
+
+.success > .action::before {
+    content: "Dismiss message";
+}
+
+.attribution { 
+    font-size: 11px; 
+    text-align: center;
+    color: var(--white);
+}
+.attribution a { color: hsl(228, 65%, 66%); }
+
+@media all and (max-width: 945px) {
+    main {
+        grid-template-columns: repeat(1, 1fr);
+        width: fit-content;
+        padding: 0px;
+        margin-top: 15px;
+        gap: 10px;
+    }
+
+    main > picture {
+        width: 100%;
+        justify-self: center;
+        order: 0;
+    }
+
+    main > picture > img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 25px 25px 0px 0px;
+    }
+
+    .sign-up {
+        padding: 20px;
+        order: 1;
+        gap: 20px;
+    }
+
+    .sign-up > h1 {
+        padding-top: 0px;
+        font-size: 2.5rem;
+    }
+
+    .sign-up > ul > li {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .input-container input,
+    .action {
+        padding: 15px;
+    }
+}
+
+@media all and (max-width: 450px) {
+    body {
+        gap: 10px;
+    }
+
+    main {
+        width: 100%;
+        border-radius: 0px;
+        margin-top: 0px;
+    }
+
+    main > picture > img {
+        border-radius: 0px 0px 16px 16px;
+    }
+
+    .action {
+        font-size: 0.9rem;
+    }
+
+    .success {
+        width: 100%;
+        height: 100vh;
+        border-radius: 0px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content min-content min-content 1fr;
+        place-items: center start;
+        gap: 20px;
+        padding: 150px 15px 15px 20px;
+    }
+
+    .success > h2 {
+        font-size: 2.5rem;
+    }
+
+    .success button {
+        align-self: end;
+    }
+
+    .attribution {
+        padding-bottom: 8px;
+    }
+}
+
+.invisible {
+    display: none;
+}

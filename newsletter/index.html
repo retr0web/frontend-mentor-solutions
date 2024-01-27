@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+</head>
+<body>
+  <main>
+    <section class="sign-up">
+      <h1>Stay updated!</h1>
+
+      <p>Join 60,000+ product managers receiving monthly updates on:</p>
+
+      <ul>
+        <li>Product discovery and building what matters</li>
+        <li>Measuring to ensure updates are a success</li>
+        <li>And much more!</li>
+      </ul>
+      
+      <form class="input-container">
+        <div class="labels">
+          <label for="email">Email address</label>
+          <span id="message">Valid email required</span>
+        </div>
+        <input id="email" type="text" placeholder="email@company.com">
+        <button class="action">Subscribe to monthly newsletter</button>
+      </form>
+    </section>
+
+    <picture>
+      <source media="(max-width: 945px)" srcset="assets/images/illustration-sign-up-mobile.svg" width="280" height="280">
+      <img src="assets/images/illustration-sign-up-desktop.svg" alt="tick with orange background">
+    </picture>
+  </main>
+
+  <section class="success invisible">
+    <img src="assets/images/icon-success.svg" alt="">
+    <h2>Thanks for subscribing!</h2>
+    <p>A confirmation email has been sent to <span id="emailReciever"></span>. 
+      Please open it and click the button inside to confirm your subscription.</p>
+    <button class="action" id="dismiss">Dismiss message</button>
+  </section>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://www.frontendmentor.io/profile/retr0web">Your Name Here</a>.
+  </div>
+
+<script src="index.js"></script>
+</body>
+</html>
