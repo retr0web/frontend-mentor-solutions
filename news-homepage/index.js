@@ -11,6 +11,9 @@ function openMenu() {
 
 function closeMenu() {
     navigation.classList.remove('menu-active');
+    navigation.addEventListener("transitionend", () => {
+        navigation.classList.remove('transition-hack');
+    })
     overlay.classList.remove('active');
 }
 
