@@ -1,0 +1,174 @@
+:root {
+    --purple: hsl(259, 100%, 65%);
+    --light-red: hsl(0, 100%, 67%);
+    --white: hsl(0, 0%, 100%);
+    --off-white: hsl(0, 0%, 94%);
+    --light-grey: hsl(0, 0%, 86%);
+    --smokey-grey: hsl(0, 1%, 44%);
+    --off-black: hsl(0, 0%, 8%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 2rem;
+    background-color: var(--off-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+main {
+    background-color: var(--white);
+    padding: 50px;
+    border-radius: 16px 16px 208px 16px;
+    width: 75%;
+    max-width: 800px;
+}
+
+.inputs {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+}
+
+.input-component {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 10px;
+    width: 150px;
+}
+
+.input-component label {
+    font-size: 1rem;
+    color: var(--smokey-grey);
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+}
+
+.input-component input {
+    padding: 10px;
+    font-size: 1.5rem;
+    color: var(--off-black);
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--light-grey);
+}
+
+.calculate {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+}
+
+.calculate hr {
+    height: 1px;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    border: 1px solid var(--light-grey);
+}
+
+.calculate button {
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    background-color: var(--purple);
+    grid-column: 2 / -1;
+    grid-row: 1 / 2;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 10px;
+}
+
+.result strong {
+    font-size: 5rem;
+    color: var(--off-black);
+}
+
+.result span {
+    font-size: inherit;
+    color: var(--purple);
+}
+
+.poppins-regular-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+  
+.poppins-bold {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+  
+.poppins-extrabold-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-style: italic;
+}
+  
+.attribution { 
+    font-size: 11px; 
+    text-align: center;
+    padding-top: 20px; 
+    color: var(--off-black);
+}
+.attribution a { color: hsl(228, 45%, 44%); }
+
+@media all and (max-width: 845px) {
+    main {
+        padding: 30px;
+    }
+
+    .input-component label {
+        font-size: 0.7rem;
+    }
+    
+    .input-component input {
+        font-size: 1rem;
+    }
+
+    .calculate {
+        grid-template-columns: 1fr auto 1fr;
+    }
+    
+    .calculate button {
+        grid-column: 2 / 3;
+        scale: 0.8;
+    }
+
+    .result strong {
+        font-size: 3rem;
+    }
+}
+
+@media all and (max-width: 500px) {
+    main {
+        width: 90%;
+        border-radius: 16px 16px 112px 16px;
+    }
+
+    .result strong {
+        font-size: 2rem;
+    }
+
+    .attribution {
+        max-width: 25ch;
+    }
+}

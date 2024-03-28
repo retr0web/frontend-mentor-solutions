@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Age calculator app</title>
+</head>
+<body>
+<main>
+  <section class="inputs">
+    <div class="input-component">
+      <label class="poppins-bold" for="day">Day</label>
+      <input class="poppins-bold" type="text" id="day" placeholder="DD">
+    </div>
+
+    <div class="input-component">
+      <label class="poppins-bold" for="month">Month</label>
+      <input class="poppins-bold" type="text" id="month" placeholder="MM">
+    </div>
+
+    <div class="input-component">
+      <label class="poppins-bold" for="year">Year</label>
+      <input class="poppins-bold" type="text" id="year" placeholder="YYYY">
+    </div>
+  </section>
+
+  <section class="calculate">
+    <hr>
+    <button id="calculate">
+      <img src="images/icon-arrow.svg" alt="">
+    </button>
+  </section>
+
+  <section class="result">
+    <strong class="poppins-extrabold-italic">
+      <span>--</span> years
+    </strong>
+    <strong class="poppins-extrabold-italic">
+      <span>--</span> months
+    </strong>
+    <strong class="poppins-extrabold-italic">
+      <span>--</span> days
+    </strong>
+  </section>
+</main>
+  
+  <div class="attribution poppins-extrabold-italic">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://www.frontendmentor.io/profile/retr0web">retr0web</a>.
+  </div>
+<script src="index.js"></script>
+</body>
+</html>
