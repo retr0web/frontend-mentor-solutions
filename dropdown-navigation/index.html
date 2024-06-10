@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+</head>
+<body>
+  <header>
+    <img src="images/logo.svg" alt="Snap">
+    <nav>
+      <img id="close-nav" src="images/icon-close-menu.svg" alt="exit">
+      <ul class="main-menu epilogue-500">
+        <li class="drop-link">
+          <span id="features">Features</span>
+          <ul class="dropdown icons">
+            <li><a href="">Todo List</a></li>
+            <li><a href="">Calendar</a></li>
+            <li><a href="">Reminders</a></li>
+            <li><a href="">Planing</a></li>
+          </ul>
+        </li>
+        <li class="drop-link">
+          <span id="company">Company</span>
+          <ul class="dropdown non-icon">
+            <li><a href="">History</a></li>
+            <li><a href="">Our Team</a></li>
+            <li><a href="">Blog</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+
+      <div class="button-group epilogue-500">
+        <a href="#">Login</a>
+        <a href="#" class="rounded">Register</a>
+      </div>
+    </nav>
+    <button id="mobile-nav">
+      <img src="images/icon-menu.svg" alt="menu icon">
+    </button>
+  </header>
+  <section class="learn-more">
+    <div class="text">
+      <h1 class="epilogue-700">Make remote work</h1>
+      <p class="epilogue-500">Get your team in sync, no matter your location. Streamline processes, 
+        create team rituals, and watch productivity soar.</p>
+      <a class="epilogue-500" href="#">Learn more</a>
+    </div>
+    <div class="partners">
+      <div class="partners-wrap">
+        <img src="images/client-databiz.svg" alt="">
+        <img src="images/client-audiophile.svg" alt="">
+      </div>
+      <div class="partners-wrap">
+        <img src="images/client-meet.svg" alt="">
+        <img src="images/client-maker.svg" alt="">
+      </div>
+    </div>
+    <picture>
+      <source media="(max-width: 930px)" srcset="images/image-hero-mobile.png">
+      <img src="images/image-hero-desktop.png" alt="">
+    </picture>
+  </section>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://www.frontendmentor.io/profile/retr0web">retr0web</a>.
+  </div>
+
+  <div class="overlay"></div>
+
+<script src="index.js"></script>
+</body>
+</html>
