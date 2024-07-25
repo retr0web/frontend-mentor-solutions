@@ -35,7 +35,7 @@ main {
 .inputs {
     display: flex;
     justify-content: start;
-    align-items: center;
+    align-items: start;
     gap: 15px;
 }
 
@@ -62,6 +62,26 @@ main {
     width: 100%;
     border-radius: 10px;
     border: 1px solid var(--light-grey);
+    transition: 0.5s;
+}
+
+.error label {
+    color: var(--light-red);
+}
+
+.error input {
+    border-color: var(--light-red);
+}
+
+.input-component span {
+    font-size: 12px;
+    color: var(--light-red);
+    width: 100%;
+    display: none;
+}
+
+.input-component.error span {
+    display: block;
 }
 
 .calculate {
@@ -83,8 +103,14 @@ main {
     border-radius: 50%;
     padding: 15px;
     background-color: var(--purple);
+    transition: 450ms;
     grid-column: 2 / -1;
     grid-row: 1 / 2;
+    cursor: pointer;
+}
+
+.calculate button:hover {
+    background-color: var(--off-black);
 }
 
 .result {
@@ -95,13 +121,15 @@ main {
     gap: 10px;
 }
 
-.result strong {
+.result div > p {
+    display: inline-block;
+    padding-inline-start: 20px;
     font-size: 5rem;
     color: var(--off-black);
 }
 
 .result span {
-    font-size: inherit;
+    font-size: 5rem;
     color: var(--purple);
 }
 
@@ -158,14 +186,26 @@ main {
     }
 }
 
+@media all and (max-width: 680px) {
+    .result div > span,
+    .result div > p {
+        font-size: 3rem;
+    }
+}
+
 @media all and (max-width: 500px) {
     main {
         width: 90%;
         border-radius: 16px 16px 112px 16px;
     }
 
-    .result strong {
+    .result div > span,
+    .result div > p {
         font-size: 2rem;
+    }
+
+    .result div > p {
+        padding-inline-start: 10px;
     }
 
     .attribution {

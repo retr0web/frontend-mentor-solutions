@@ -16,16 +16,19 @@
     <div class="input-component">
       <label class="poppins-bold" for="day">Day</label>
       <input class="poppins-bold" type="text" id="day" placeholder="DD">
+      <span class="poppins-regular-italic" data-error="This field can't be empty">This field can't be empty</span>
     </div>
 
     <div class="input-component">
       <label class="poppins-bold" for="month">Month</label>
       <input class="poppins-bold" type="text" id="month" placeholder="MM">
+      <span class="poppins-regular-italic" data-error="This field can't be empty">This field can't be empty</span>
     </div>
 
     <div class="input-component">
       <label class="poppins-bold" for="year">Year</label>
       <input class="poppins-bold" type="text" id="year" placeholder="YYYY">
+      <span class="poppins-regular-italic" data-error="This field can't be empty">This field can't be empty</span>
     </div>
   </section>
 
@@ -37,15 +40,15 @@
   </section>
 
   <section class="result">
-    <strong class="poppins-extrabold-italic">
-      <span>--</span> years
-    </strong>
-    <strong class="poppins-extrabold-italic">
-      <span>--</span> months
-    </strong>
-    <strong class="poppins-extrabold-italic">
-      <span>--</span> days
-    </strong>
+    <div class="poppins-extrabold-italic">
+      <span id="your-years">--</span><p id="year-label">years</p>
+    </div>
+    <div class="poppins-extrabold-italic">
+      <span id="your-months">--</span><p id="month-label">months</p>
+    </div>
+    <div class="poppins-extrabold-italic">
+      <span id="your-days">--</span><p id="day-label">days</p>
+    </div>
   </section>
 </main>
   
@@ -53,6 +56,6 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="https://www.frontendmentor.io/profile/retr0web">retr0web</a>.
   </div>
-<script src="index.js"></script>
+<script type="module" src="index.js"></script>
 </body>
 </html>
