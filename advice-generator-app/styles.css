@@ -1,0 +1,123 @@
+:root {
+    --light-cyan: hsl(193, 38%, 86%);
+    --neon-green: hsl(150, 100%, 66%);
+    --grayish-blue: hsl(216, 19%, 38%);
+    --dark-grayish-blue: hsl(219, 19%, 24%);
+    --dark-blue: hsl(218, 23%, 16%);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--dark-blue);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr min-content;
+    place-items: center;
+    min-height: 100dvh;
+}
+
+main {
+    max-width: 70ch;
+    padding: 50px 50px 60px 50px;
+    background-color: var(--dark-grayish-blue);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    border-radius: 25px;
+    position: relative;
+}
+
+main > p {
+    color: var(--neon-green);
+    font-size: 20px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+main > p > span {
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+}
+
+main > h1 {
+    color: var(--light-cyan);
+    font-size: 28px;
+    text-align: center;
+}
+
+main > h1::before {
+    content: '“';
+}
+
+main > h1::after {
+    content: '”';
+}
+
+main > picture > img {
+    max-width: 100%;
+}
+
+main > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--neon-green);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: none;
+    position: absolute;
+    bottom: -26px;
+    box-shadow: 0 0 0 0 var(--neon-green);
+    transition: box-shadow 0.4s ease-in-out;
+}
+
+main > button:hover {
+    box-shadow: 0 0 10px 5px var(--neon-green);
+}
+
+.manrope-800 {
+    font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.attribution { 
+    font-size: 11px;
+    text-align: center;
+    padding-bottom: 10px;
+    color: var(--light-cyan);
+}
+
+.attribution a { color: var(--neon-green); }
+
+@media all and (max-width: 580px) {
+    body {
+        padding-inline: 10px;
+    }
+
+    main {
+        max-width: 40ch;
+        padding: 25px 25px 45px 25px;
+        gap: 15px;
+    }
+
+    main > p {
+        font-size: 14px;
+    }
+
+    main > h1 {
+        font-size: 20px;
+    }
+}
