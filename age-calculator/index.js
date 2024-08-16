@@ -11,9 +11,9 @@ const monthLabel = document.querySelector('#month-label');
 const dayLabel = document.querySelector('#day-label');
 
 function calculateAge() {
-    let day = document.querySelector('#day');
-    let month = document.querySelector('#month');
-    let year = document.querySelector('#year');
+    const day = document.querySelector('#day');
+    const month = document.querySelector('#month');
+    const year = document.querySelector('#year');
 
     const today = DateTime.now();
     
@@ -24,39 +24,38 @@ function calculateAge() {
         yourMonths.innerHTML = `--`;
         yourDays.innerHTML = `--`;
     }
+
+    function displayError(input, msgText) {
+        input.nextElementSibling.dataset.error = msgText;
+        input.nextElementSibling.innerHTML = input.nextElementSibling.dataset.error;
+        input.parentElement.classList.add('error');
+    }
     
+    function checkDay(input) {
+       input.value > 0 && input.value < 32 ? input.parentElement.classList.remove('error') : displayError(input, "Must be a valid day"); 
+    }
+
+    function checkMonth(input) {
+        input.value > 0 && input.value < 13 ? input.parentElement.classList.remove('error') : displayError(input, "Must be a valid month"); 
+    }
+
+    function checkYear(input) {
+        input.value < today.c.year ? input.parentElement.classList.remove('error') : displayError(input, "Must be a valid year"); 
+    }
+
+    const validators = {
+        day: checkDay,
+        month: checkMonth,
+        year: checkYear,
+    }
+
     for (let input of inputs) {
-        if (input.value === '') {
-            input.nextElementSibling.dataset.error = "This field is required";
-            input.nextElementSibling.innerHTML = input.nextElementSibling.dataset.error;
-            input.parentElement.classList.add('error');
-        } else if (input.id === 'day') {
-            if (input.value > 31 || input.value < 1) {
-                input.nextElementSibling.dataset.error = "Must be a valid day";
-                input.nextElementSibling.innerHTML = input.nextElementSibling.dataset.error;
-                input.parentElement.classList.add('error');
-            } else {
-                input.parentElement.classList.remove('error');
-            }
-        } else if (input.id === 'month') {
-            if (input.value > 12 || input.value < 1) {
-                input.nextElementSibling.dataset.error = "Must be a valid month";
-                input.nextElementSibling.innerHTML = input.nextElementSibling.dataset.error;
-                input.parentElement.classList.add('error');
-            } else {
-                input.parentElement.classList.remove('error');
-            }
-        } else if (input.id === 'year') {
-            if (input.value > today.c.year) {
-                input.nextElementSibling.dataset.error = "Must be in the past";
-                input.nextElementSibling.innerHTML = input.nextElementSibling.dataset.error;
-                input.parentElement.classList.add('error');
-            } else {
-                input.parentElement.classList.remove('error');
-            }
-        } else {
-            input.parentElement.classList.remove('error');
+        if (!input.value) {
+            displayError(input, "This field is required")
+            return;
         }
+
+        validators[input.id](input);
     }
      
     for (let input of inputs) {
@@ -69,9 +68,7 @@ function calculateAge() {
     const dateOfBirth = DateTime.fromObject({day: Number(day.value), month: Number(month.value), year: Number(year.value)});
 
     if(!dateOfBirth.isValid) {
-        day.nextElementSibling.dataset.error = "Must be a valid date";
-        day.nextElementSibling.innerHTML = day.nextElementSibling.dataset.error;
-        day.parentElement.classList.add('error');
+        displayError(day, "Must be a valid date");
         clearOutput();
         return;
     }
